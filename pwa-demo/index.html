@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Hello PWA</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="main.css">
   <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.1.1/vue.cjs.js"></script>
   <!-- <script src="sw.js"></script> -->
 </head>
+
 <body>
-  <h3>Hello PWA</h3>
+  <h3>Hello PWA123231312223</h3>
+  <h3>Hello PWA1232313123</h3>
+  <h3>Hello PWA1232313123</h3>
 </body>
 <script>
   // 检测浏览器是否支持SW
   console.log('sw', navigator.serviceWorker)
-  if(navigator.serviceWorker != null){
-    console.log('1232')
+  if (navigator.serviceWorker != null) {
     navigator.serviceWorker.register('sw.js')
-    .then(function(registartion){
-      console.log('支持sw:',registartion.scope)
-    })
+      .then(function (registartion) {
+        console.log('支持sw:', registartion.scope)
+        const version = 'v5'
+        if (localStorage.getItem('sw_version') !== version) {
+          registartion.update().then(function () {
+            localStorage.setItem('sw_version', version)
+          });
+        }
+      })
+
   }
 </script>
+
 </html>
