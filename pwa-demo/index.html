@@ -9,11 +9,16 @@
   <link rel="stylesheet" href="main.css">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.1.1/vue.cjs.js"></script>
-  <!-- <script src="sw.js"></script> -->
+  <script src="http://wechatfe.github.io/vconsole/lib/vconsole.min.js?v=3.2.0"></script>
+  <script>
+    // init vConsole
+    var vConsole = new VConsole();
+    console.log('Hello world');
+  </script>
 </head>
 
 <body>
-  <h3>Hello PWA Demo 2
+  <h3>Hello PWA Demo 3
   </h3>
 </body>
 <script>
@@ -23,12 +28,12 @@
     navigator.serviceWorker.register('sw.js')
       .then(function (registartion) {
         console.log('支持sw:', registartion.scope)
-        const version = 'v5'
-        if (localStorage.getItem('sw_version') !== version) {
-          registartion.update().then(function () {
-            localStorage.setItem('sw_version', version)
-          });
-        }
+        // const version = 'v5'
+        // if (localStorage.getItem('sw_version') !== version) {
+        //   registartion.update().then(function () {
+        //     localStorage.setItem('sw_version', version)
+        //   });
+        // }
       })
 
   }
