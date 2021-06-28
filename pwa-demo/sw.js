@@ -5,7 +5,6 @@ var cacheList=[
   './index.html',
   './main.css',
   './logo192.png',
-  'https://cdn.bootcdn.net/ajax/libs/vue/3.1.1/vue.cjs.js'
 ]
 
 
